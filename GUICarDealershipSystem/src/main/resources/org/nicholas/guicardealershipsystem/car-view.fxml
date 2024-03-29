@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Nicholas Dhannie
+ CEN 3024C - Software Development 1
+ March 29, 2024
+ car-view.fxml
+ This file is all about the user interface and the way that it has been laid out to
+ the user. This includes the buttons, tables, text fields. The interface was made
+ using SceneBuilder which made it easy to control where to place the items for the
+ user.
+/-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="696.0" prefWidth="736.0" spacing="20.0" xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.nicholas.guicardealershipsystem.CarDealershipController">
+
+    <ToolBar prefHeight="40.0" prefWidth="200.0">
+        <items>
+            <Button onAction="#uploadFile" text="Upload File"/>
+            <Button fx:id="addCarButton" onAction="#addCarDialog" text="Add Car"/>
+            <Button onAction="#removeSelectedCar" text="Remove Car"/>
+            <Button onAction="#editSelectedCar" text="Edit Car"/>
+        </items>
+    </ToolBar>
+
+
+    <TableView fx:id="tableView" prefHeight="400.0" prefWidth="805.0">
+        <columns>
+            <TableColumn text="ID">
+                <cellValueFactory>
+                    <PropertyValueFactory property="id"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Year">
+                <cellValueFactory>
+                    <PropertyValueFactory property="year"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Make">
+                <cellValueFactory>
+                    <PropertyValueFactory property="make"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Model">
+                <cellValueFactory>
+                    <PropertyValueFactory property="model"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Color">
+                <cellValueFactory>
+                    <PropertyValueFactory property="color"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Engine">
+                <cellValueFactory>
+                    <PropertyValueFactory property="engine"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="100.0" text="Transmission">
+                <cellValueFactory>
+                    <PropertyValueFactory property="transmissionType"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="76.79998779296875" text="Price">
+                <cellValueFactory>
+                    <PropertyValueFactory property="price"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="76.79998779296875" text="Sold">
+                <cellValueFactory>
+                    <PropertyValueFactory property="sold"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <HBox>
+        <Label text="Year:"/>
+        <TextField fx:id="yearFilterField"/>
+    </HBox>
+    <HBox>
+        <Label text="Make:"/>
+        <TextField fx:id="makeFilterField"/>
+    </HBox>
+    <HBox>
+        <Label text="Model:"/>
+        <TextField fx:id="modelFilterField"/>
+    </HBox>
+    <HBox>
+        <Label text="Color:"/>
+        <TextField fx:id="colorFilterField"/>
+    </HBox>
+    <Button onAction="#removeFilteredCars" text="Remove Filtered Cars"/>
+</VBox>
